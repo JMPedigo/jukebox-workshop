@@ -13,7 +13,7 @@ console.log("🌱 Database seeded.");
  * at least 20 tracks and 10 playlists.
  */
 async function seed() {
-  for (let i = 1; i <= 15; i++) {
+  for (let i = 1; i <= 20; i++) {
     await createPlaylist({
       name: faker.music.album(),
       description: faker.music.genre(),
