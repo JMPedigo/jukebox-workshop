@@ -2,12 +2,13 @@ import express from "express";
 const app = express();
 export default app;
 
+import playlistsRouter from "#api/playlists";
 import tracksRouter from "#api/tracks";
 /** Body-parsing middleware */
 app.use(express.json());
 
 app.use("/tracks", tracksRouter);
-
+app.use("/playlists", playlistsRouter);
 app.get("/", (req, res) => {
   res.send("Welcome to the Jukebox API.");
 });
