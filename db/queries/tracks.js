@@ -37,3 +37,17 @@ export async function getTrackById(id) {
   } = await db.query(sql, [id]);
   return track;
 }
+
+/** GET /playlists/:id/tracks sends all tracks in the playlist */
+export async function getTracksByPlaylistId(id) {
+  const sql = `
+    SELECT tracks.*
+    FROM
+      tracks
+      JOIN playlists_tracks ON playlists_tracks.track_id = tracks.id
+      JOIN playlists ON playlists.id = playlists_tracks.playlist_id
+    WHERE playlists.id = $1
+    `;
+  const { rows: tracks } = await db.query(sql, [id]);
+  return tracks;
+}
