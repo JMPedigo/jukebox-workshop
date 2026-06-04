@@ -7,6 +7,12 @@ DROP TABLE IF EXISTS playlists_tracks;
 DROP TABLE IF EXISTS playlists;
 DROP TABLE IF EXISTS tracks;
 
+CREATE TABLE tracks (
+    id serial PRIMARY KEY,
+    name text NOT NULL,
+    duration_ms int NOT NULL
+);
+
 CREATE TABLE playlists (
     id serial PRIMARY KEY,
     name text NOT NULL,
@@ -20,8 +26,3 @@ CREATE TABLE playlists_tracks (
     UNIQUE (playlist_id, track_id)
 );
 
-CREATE TABLE tracks (
-    id serial PRIMARY KEY,
-    name text NOT NULL,
-    duration_ms int NOT NULL
-);
