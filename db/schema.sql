@@ -1,3 +1,8 @@
+/** create tables according to the schema
+* If either a playlist or a track is deleted, the deletion should cascade to all related playlists_tracks records.
+* Each track can only be in a playlist once. (Use a unique constraint!)
+*/
+
 DROP TABLE IF EXISTS playlists_tracks;
 DROP TABLE IF EXISTS playlists;
 DROP TABLE IF EXISTS tracks;
