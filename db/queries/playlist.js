@@ -1,6 +1,6 @@
 import db from "#db/client";
 
-export async function createPlaylist(name, description) {
+export async function createPlaylist({ name, description }) {
   const sql = `
     INSERT INTO playlists
       (name, description)
