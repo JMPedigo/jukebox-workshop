@@ -11,4 +11,15 @@ export async function createPlaylist({ name, description }) {
   const {
     rows: [playlist],
   } = await db.query(sql, [name, description]);
+  return playlist;
+}
+
+/** GET /playlists sends an array of all playlists */
+export async function getPlaylists() {
+  const sql = `
+    SELECT *
+    FROM playlists
+    `;
+  const { rows: playlists } = await db.query(sql);
+  return playlists;
 }
